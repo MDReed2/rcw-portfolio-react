@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+$color-bg: #1f1f38;
+$color-bg-variant: #2c2c6c;
+$color-primary: #4db5ff;
+$color-primary-variant: rgba(77, 181, 255, 0.4);
+$color-white: #fff;
+$color-light: rgba(255, 255, 255, 0.6);
+
+$container-width-lg: 75%;
+$container-width-md: 86%;
+$container-width-sm: 90%;
+
+$transition: all 400ms ease;
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: none;
+  list-style: none;
+  text-decoration: none;
+}
+
+:root {
+  --color-bg: $color-bg;
+  --color-bg-variant: $color-bg-variant;
+  --color-primary: $color-primary;
+  --color-primary-variant: $color-primary-variant;
+  --color-white: $color-white;
+  --color-light: $color-light;
+  --container-width-lg: $container-width-lg;
+  --container-width-md: $container-width-md;
+  --container-width-sm: $container-width-sm;
+
+  --transition: $transition;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: $color-bg;
+  color: $color-white;
+  line-height: 1.7;
+  // Look for image or look to use a gradient
+  // background-image: url("./assets/bg-dots.png");
+}
+
+// General Styles
+
+.container {
+  width: $container-width-lg;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+section {
+  margin-top: 8rem;
+  height: 50vh;
+}
+
+section > h2,
+section > h5 {
+  text-align: center;
+  color: $color-light;
+}
+
+section > h2 {
+  color: $color-primary;
+  margin-bottom: 3rem;
+}
+
+.text-light {
+  color: $color-light;
+}
+
+a {
+  color: $color-primary;
+  transition: all 400ms ease;
+}
+
+a:hover {
+  color: $color-white;
+}
+
+.btn {
+  width: max-content;
+  display: inline-block;
+  color: $color-primary;
+  padding: 0.75rem 1.2rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  border: 1px solid $color-primary;
+  transition: $transition;
+}
+
+.btn:hover {
+  background: $color-white;
+  color: $color-bg;
+  border: transparent;
+}
+
+.btn-primary {
+  background: $color-primary;
+  color: $color-bg;
+}
+
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+// MEDIA QUERIES (MEDIUM DEVICES)
+@media screen and (max-width: 1024px) {
+  .container {
+    width: $container-width-md;
+  }
+
+  .section {
+    margin-top: 6rem;
+  }
+}
+
+// MEDIA QUERIES (SMALL DEVICES)
+@media screen and (max-width: 600px) {
+  .container {
+    width: $container-width-sm;
+  }
+
+  .section > h2 {
+    margin-bottom: 2rem;
+  }
+}
