@@ -6,22 +6,6 @@ import { MdWorkOutline, MdOutlineMenu, MdOutlineMessage } from 'react-icons/md'
 
 const Navbar = () => {
   const [activeNav, setActiveNav] = useState('#')
-  // const activeClassHandler = () => {
-  //   switch(activeNav === '#') {
-  //     case '#about':
-  
-  //     break
-  //     case '#experience':
-
-  //     break
-  //     case '#portfolio':
-
-  //     break
-  //     case '#contact':
-
-  //     break
-  //   }
-  // }
   return (
     <nav>
       <a href='#' onClick={() => setActiveNav('#')} className={activeNav === '#' ? 'active' : ''}><AiOutlineHome /></a>
