@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Navigate } from 'react-router'
+import { NavLink } from 'react-router-dom'
 
 import { signUp, signIn } from '../../api/auth'
 import { signUpSuccess, signUpFailure } from '../AutoDismissAlert/messages'
@@ -45,6 +46,8 @@ const SignUp = ({ msgAlert, setUser }) => {
       })
       setShouldNavigate(true)
     } catch (error) {
+      setFirstName('')
+      setLastName('')
       setEmail('')
       setPassword('')
       setPasswordConfirmation('')
@@ -60,20 +63,6 @@ const SignUp = ({ msgAlert, setUser }) => {
     return <Navigate to='/' />
   }
 
-  // const onSignUp = (event) => {
-  //   event.preventDefault()
-
-  //   const credentialData = {
-  //     firstname: firstname,
-  //     lastname: lastname,
-  //     email: email,
-  //     password: password,
-  //     password_confirmation: password_confirmation
-  //   }
-    
-  //   console.log(credentialData)
-  //   signUp(credentialData)
-  // }
 
   return (
     <div className='row'>
@@ -82,7 +71,7 @@ const SignUp = ({ msgAlert, setUser }) => {
         alt='' /> */}
         <h3>Sign Up</h3>
         <Form onSubmit={onSignUp}>
-          <Form.Group controlId='email'>
+          <Form.Group controlId='firstname'>
             <Form.Label>First Name</Form.Label>
             <Form.Control
               required
@@ -92,7 +81,7 @@ const SignUp = ({ msgAlert, setUser }) => {
               placeholder='First Name'
               onChange={handleFirstNameInput}
             />
-          </Form.Group><Form.Group controlId='email'>
+          </Form.Group><Form.Group controlId='lastname'>
             <Form.Label>Last Name</Form.Label>
             <Form.Control
               required
@@ -137,6 +126,7 @@ const SignUp = ({ msgAlert, setUser }) => {
             />
           </Form.Group>
           <Button className='mt-2' variant='warning' type='submit'>Submit</Button>
+          <small><NavLink to='/sign-in'>Back to Sign-In</NavLink></small>
         </Form>
       </div>
     </div>

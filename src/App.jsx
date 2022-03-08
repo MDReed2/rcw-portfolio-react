@@ -1,35 +1,38 @@
-import React, { useState } from 'react'
-import { Route, Routes } from 'react-router-dom'
-import { v4 as uuid } from 'uuid'
+import React, { useState } from "react"
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom"
+import { v4 as uuid } from "uuid"
 
-import Header from './components/header/Header-2'
-import Navbar from './components/navbar/Navbar'
-import About from './components/about/About'
-import Experience from './components/experience/Experience'
-import Portfolio from './components/portfolio/Portfolio'
-import Contact from './components/contact/Contact'
-import Footer from './components/footer/Footer'
+import Header from "./components/header/Header"
+import Navbar from "./components/navbar/Navbar"
+import About from "./components/about/About"
+import Experience from "./components/experience/Experience"
+import Portfolio from "./components/portfolio/Portfolio"
+import Contact from "./components/contact/Contact"
+import Footer from "./components/footer/Footer"
 
-import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
-import SignUp from './components/auth/SignUp'
-import SignIn from './components/auth/SignIn'
-import SignOut from './components/auth/SignOut'
-import ChangePassword from './components/auth/ChangePassword'
+import AutoDismissAlert from "./components/AutoDismissAlert/AutoDismissAlert"
+import SignUp from "./components/auth/SignUp"
+import SignIn from "./components/auth/SignIn"
+import SignOut from "./components/auth/SignOut"
+import ChangePassword from "./components/auth/ChangePassword"
 
 const App = () => {
-   const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
 
   const clearUser = () => setUser(null)
 
   const msgAlert = ({ heading, message, variant }) => {
     const id = uuid()
-    setMsgAlerts(msgAlerts => ([...msgAlerts, { heading, message, variant, id }]))
+    setMsgAlerts((msgAlerts) => [
+      ...msgAlerts,
+      { heading, message, variant, id },
+    ])
   }
+
   return (
-    <>
-      <Header user={user} />
-      {msgAlerts.map(msgAlert => (
+    <Router>
+      {msgAlerts.map((msgAlert) => (
         <AutoDismissAlert
           key={msgAlert.id}
           heading={msgAlert.heading}
@@ -38,42 +41,40 @@ const App = () => {
           id={msgAlert.id}
         />
       ))}
-      <main className='container'>
+      <main className="container">
         <Routes>
           <Route
-            path='/sign-up'
-            element={<SignUp msgAlert={msgAlert} setUser={setUser} /> }
+            path="/sign-up"
+            element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
           />
           <Route
-            path='/sign-in'
-            element={<SignIn msgAlert={msgAlert} setUser={setUser} /> }
+            path="/sign-in"
+            element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
           />
           <Route
-            path='/sign-out'
-            element={<SignOut msgAlert={msgAlert} clearUser={clearUser} user={user} /> }
+            path="/sign-out"
+            element={
+              <SignOut
+                msgAlert={msgAlert}
+                clearUser={clearUser}
+                user={user}
+              />
+            }
           />
           <Route
-            path='/change-password'
-            element={<ChangePassword msgAlert={msgAlert} user={user} /> }
+            path="/change-password"
+            element={<ChangePassword msgAlert={msgAlert} user={user} />}
           />
         </Routes>
-        <Navbar  />
+        <Header user={user} />
+        <Navbar user={user} />
         <About />
         <Experience />
         <Portfolio />
         <Contact />
       </main>
       <Footer />
-    </>    
-    // <div>
-    //   <Header />
-    //   <Navbar  />
-    //   <About />
-    //   <Experience />
-    //   <Portfolio />
-    //   <Contact />
-    //   <Footer />
-    // </div>
+    </Router>
   )
 }
 

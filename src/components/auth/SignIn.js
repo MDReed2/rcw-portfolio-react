@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Navigate } from 'react-router-dom'
+import { Navigate, NavLink } from 'react-router-dom'
 
 import { signIn } from '../../api/auth'
 import { signInSuccess, signInFailure } from '../AutoDismissAlert/messages'
@@ -70,6 +70,7 @@ const SignIn = ({ msgAlert, setUser }) => {
           </Form.Group>
           <Button className='mt-2' variant='primary' type='submit'>Submit</Button>
         </Form>
+        <small>Need to Sign Up? <NavLink to='/sign-up'>Sign Up</NavLink></small>
       </div>
     </div>
   )
