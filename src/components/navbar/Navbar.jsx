@@ -6,12 +6,13 @@ import { MdWorkOutline, MdOutlineMenu, MdOutlineMessage } from 'react-icons/md'
 
 
 const Navbar = (props) => {
-  const [activeNav, setActiveNav] = useState('#')
+  const [activeNav, setActiveNav] = useState('/')
 
   const authenticatedOptions = (
     <>
       <NavLink to='/change-password' className='nav-link'>Change Password</NavLink>
       <NavLink to='/sign-out' className='nav-link'>Sign Out</NavLink>
+      
     </>
   )
 
@@ -22,20 +23,35 @@ const Navbar = (props) => {
     </>
   )
 
+  const alwaysOptions = (
+    <>
+      <NavLink to='/' className='nav-link'>Home</NavLink>
+    </>
+  )
+
+  const onHome = () => {
+    setActiveNav('/')
+    props.headerRef.current.scrollIntoView({behavior: "smooth"})
+  }
+
+  const onAbout = () => {
+    setActiveNav('#about')
+    props.aboutRef.current.scrollIntoView()
+  }
+
   const onSignIn = () => {
     setActiveNav('/sign-in')
-
   }
 
 
   return (
     <nav>
-      <a href='#' onClick={() => setActiveNav('#')} className={activeNav === '#' ? 'active' : ''}><AiOutlineHome /></a>
-      <a href='#about' onClick={() => setActiveNav('#about')} className={activeNav === '#about' ? 'active' : ''}><AiOutlineUser /></a>
+      <a href='/' onClick={onHome} className={activeNav === '/' ? 'active' : ''} title="Home"><AiOutlineHome /></a>
+      <a href='#about' onClick={onAbout} className={activeNav === '#about' ? 'active' : ''}><AiOutlineUser /></a>
       <a href='#experience' onClick={() => setActiveNav('#experience')} className={activeNav === '#experience' ? 'active' : ''}><MdWorkOutline /></a>
       <a href='#portfolio' onClick={() => setActiveNav('#portfolio')} className={activeNav === '#portfolio' ? 'active' : ''}><MdOutlineMenu /></a>
       <a href='#contact' onClick={() => setActiveNav('#contact')} className={activeNav === '#contact' ? 'active' : ''}><MdOutlineMessage /></a>
-      <NavLink to='/sign-in' onClick={onSignIn} className={activeNav === '/sign-in' ? 'active' : ''}><AiOutlineLogin /></NavLink>
+      <NavLink to='/sign-in' onClick={onSignIn} className={activeNav === '/sign-in' ? 'active' : ''} title="Sign In"><AiOutlineLogin /></NavLink>
     </nav>
   )
 }

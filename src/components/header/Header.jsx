@@ -6,7 +6,7 @@ import HeaderSocials from './HeaderSocials'
 
 const Header = (props) => {
   return (
-    <header>
+    <header ref={props.forwardRef}>
       <div className="container header__container">
         <h5>Hello I'm</h5>
         <h1>Meshia Reed</h1>
