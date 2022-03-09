@@ -4,7 +4,7 @@ import CTA from './CTA'
 import ME from './../../assets/SD-350px.png'
 import HeaderSocials from './HeaderSocials'
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header>
       <div className="container header__container">
