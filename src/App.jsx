@@ -68,9 +68,9 @@ const App = () => {
         </Routes>
         <Header user={user} />
         <Navbar user={user} />
-        <About />
-        <Experience />
-        <Portfolio />
+        {user ? <About />: ''}
+        {user ? <Experience />: ''}
+        {user ? <Portfolio />: ''}
         <Contact />
       </main>
       <Footer />
