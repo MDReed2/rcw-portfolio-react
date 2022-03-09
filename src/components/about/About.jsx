@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import './about.scss'
 import ME from '../../assets/rcw-about-img-.png'
 import { FaAward, FaUsers } from 'react-icons/fa'
@@ -6,7 +6,7 @@ import { MdOutlineFolder } from 'react-icons/md'
 
 const About = () => {
   return (
-    <section id='about'>
+    <section id='about' ref={forwardRef}>
     <h5>Get to Know</h5>
     <h2>About</h2>
     <div className='container about__container'>

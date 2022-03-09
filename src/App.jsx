@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom"
 import { v4 as uuid } from "uuid"
 
@@ -29,6 +29,10 @@ const App = () => {
       { heading, message, variant, id },
     ])
   }
+
+  const headerRef = useRef(null)
+  const aboutRef = useRef(null)
+
 
   return (
     <Router>
@@ -66,9 +70,9 @@ const App = () => {
             element={<ChangePassword msgAlert={msgAlert} user={user} />}
           />
         </Routes>
-        <Header user={user} />
-        <Navbar user={user} />
-        {user ? <About />: ''}
+        <Header user={user} forwardRef={headerRef} />
+        <Navbar headerRef={headerRef}/>
+        {user ? <About forwardRef={aboutRef} />: ''}
         {user ? <Experience />: ''}
         {user ? <Portfolio />: ''}
         <Contact />
