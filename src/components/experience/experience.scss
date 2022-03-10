@@ -66,7 +66,6 @@
       .experience__details {
         justify-content: center;
       }
-
     }
   }
 }
@@ -75,5 +74,19 @@
 @media screen and (max-width: 600px) {
   .experience__container {
     gap: 1rem;
+
+    .experience__frontend,
+    .experience__backend {
+      width: 90%;
+      padding: 2rem 1rem;
+
+      .experience__content {
+        padding: 1rem;
+
+        .experience__details {
+          justify-content: flex-start;
+        }
+      }
+    }
   }
 }
