@@ -73,7 +73,8 @@ const App = () => {
         <Header user={user} forwardRef={headerRef} />
         <Navbar headerRef={headerRef}/>
         {user ? <About forwardRef={aboutRef} />: ''}
-        {user ? <Experience />: ''}
+        {/* {user ? <Experience />: ''} */}
+        <Experience />
         {user ? <Portfolio />: ''}
         <Contact />
       </main>

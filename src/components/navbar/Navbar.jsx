@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import './navbar.scss'
 import { AiOutlineHome, AiOutlineUser, AiOutlineLogin } from 'react-icons/ai'
 import { MdWorkOutline, MdOutlineMenu, MdOutlineMessage } from 'react-icons/md'
+import { RiLogoutCircleLine } from 'react-icons/ri'
 
 
 const Navbar = (props) => {
@@ -43,6 +44,10 @@ const Navbar = (props) => {
     setActiveNav('/sign-in')
   }
 
+  const onSignOut = () => {
+    setActiveNav('/sign-out')
+  }
+
 
   return (
     <nav>
@@ -52,6 +57,7 @@ const Navbar = (props) => {
       <a href='#portfolio' onClick={() => setActiveNav('#portfolio')} className={activeNav === '#portfolio' ? 'active' : ''}><MdOutlineMenu /></a>
       <a href='#contact' onClick={() => setActiveNav('#contact')} className={activeNav === '#contact' ? 'active' : ''}><MdOutlineMessage /></a>
       <NavLink to='/sign-in' onClick={onSignIn} className={activeNav === '/sign-in' ? 'active' : ''} title="Sign In"><AiOutlineLogin /></NavLink>
+      <NavLink to='/sign-out' onClick={onSignOut} className={activeNav === '/sign-out' ? 'active' : ''} title="Sign Out"><RiLogoutCircleLine /></NavLink>
     </nav>
   )
 }
