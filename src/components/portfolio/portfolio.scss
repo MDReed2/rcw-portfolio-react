@@ -1,0 +1,62 @@
+@import "../../index.scss";
+
+.portfolio__container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem;
+
+  .portfolio__item {
+    background: $color-bg-variant;
+    padding: 1rem;
+    border: 1px solid transparent;
+    border-radius: 2rem;
+    transition: $transition;
+
+    &:hover {
+      border: 1px solid $color-primary-variant;
+      background: transparent;
+    }
+
+    &-image {
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+
+    h3 {
+      margin: 1.2rem 0 2rem;
+      text-align: center;
+    }
+
+    &-cta {
+      display: flex;
+      gap: 1rem;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      a {
+        text-align: center;
+
+        &.btn {
+          min-width: 75%;
+        }
+      }
+    }
+  }
+}
+
+/* ================ MEDIA QUERIES (MEDIUM DEVICES) ================= */
+@media screen and (max-width: 1024px) {
+  .portfolio__container {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+}
+
+/* ================ MEDIA QUERIES (SMALL DEVICES) ================= */
+@media screen and (max-width: 600px) {
+  .portfolio__container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

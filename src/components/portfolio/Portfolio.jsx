@@ -1,10 +1,49 @@
 import React from 'react'
 import './portfolio.scss'
+import { AiFillGithub } from 'react-icons/ai'
+import IMG from '../../assets/project-img-example.png'
+
+const data = [
+  {
+    id: 1,
+    image: IMG,
+    title: 'True Foodie',
+    github: 'https://github.com/MDReed2/true-foodie-client',
+    demo: '#'
+  },
+  {
+    id: 2,
+    image: IMG,
+    title: 'Jot-it',
+    github: 'https://github.com/MDReed2/project-frontend',
+    demo: '#'
+  }
+]
 
 const Portfolio = () => {
   return (
     <section id='portfolio'>
-      <h1>Portfolio</h1>
+      <h5>My Recent Work</h5>
+      <h2>Portfolio</h2>
+      <div className="container portfolio__container">
+        {
+          data.map(({id, image, title, github, demo}) => {
+            return (
+              <article key={id} className='portfolio__item'>
+                <div className="portfolio__item-image">
+                  <img src={image} alt="" />
+                </div>
+                <h3>{title}</h3>
+                <div className="portfolio__item-cta">
+                  <a href={github} className='btn' target='_blank'><AiFillGithub /> GitHub</a>
+                  <a href={demo} className='btn btn-primary' target='_blank'> Live Demo</a>
+                </div>
+              </article>
+            )
+          })
+        }
+
+      </div>
     </section>
   )
 }

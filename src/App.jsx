@@ -75,7 +75,8 @@ const App = () => {
         {user ? <About forwardRef={aboutRef} />: ''}
         {/* {user ? <Experience />: ''} */}
         <Experience />
-        {user ? <Portfolio />: ''}
+        {/* {user ? <Portfolio />: ''} */}
+        <Portfolio />
         <Contact />
       </main>
       <Footer />
