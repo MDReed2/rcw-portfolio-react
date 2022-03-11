@@ -3,7 +3,7 @@
 .container.contact__container {
   width: 58%;
   display: grid;
-  grid-template-columns: 30% 58%;
+  grid-template-columns: minmax(0, 30%) 58%;
   gap: 12%;
 
   .contact__options {
@@ -68,5 +68,9 @@ form {
 @media screen and (max-width: 600px) {
   .container.contact__container {
     width: $container-width-sm;
+
+    form {
+      align-items: center;
+    }
   }
 }
