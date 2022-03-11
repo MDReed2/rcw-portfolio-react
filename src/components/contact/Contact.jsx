@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import emailjs from '@emailjs/browser'
+// import emailjs from '@emailjs/browser'
 import './contact.scss'
 import { MdOutlineEmail } from 'react-icons/md'
 import { AiOutlineWhatsApp } from 'react-icons/ai'
