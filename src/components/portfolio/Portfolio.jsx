@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './portfolio.scss'
 import { AiFillGithub } from 'react-icons/ai'
 import IMG from '../../assets/project-img-example.png'
@@ -29,20 +30,25 @@ const Portfolio = () => {
         {
           data.map(({id, image, title, github, demo}) => {
             return (
-              <article key={id} className='portfolio__item'>
-                <div className="portfolio__item-image">
-                  <img src={image} alt="" />
-                </div>
-                <h3>{title}</h3>
-                <div className="portfolio__item-cta">
-                  <a href={github} className='btn' target='_blank'><AiFillGithub /> GitHub</a>
-                  <a href={demo} className='btn btn-primary' target='_blank'> Live Demo</a>
-                </div>
-              </article>
+              <div>
+                <article key={id} className='portfolio__item'>
+                  <div className="portfolio__item-image">
+                    <img src={image} alt="" />
+                  </div>
+                  <h3>{title}</h3>
+                  <div className="portfolio__item-cta">
+                    <a href={github} className='btn' target='_blank'><AiFillGithub /> GitHub</a>
+                    <a href={demo} className='btn btn-primary' target='_blank'> Live Demo</a>
+                  </div>
+                </article>
+              </div>
             )
           })
         }
-
+      </div>
+      <div className='suggestions'>
+        <p>Have a project in mind that you would like to see?</p>
+        <Link to='/suggestions'>Create Suggestion</Link>
       </div>
     </section>
   )

@@ -81,7 +81,8 @@ const SignUp = ({ msgAlert, setUser }) => {
               placeholder='First Name'
               onChange={handleFirstNameInput}
             />
-          </Form.Group><Form.Group controlId='lastname'>
+          </Form.Group>
+          <Form.Group controlId='lastname'>
             <Form.Label>Last Name</Form.Label>
             <Form.Control
               required

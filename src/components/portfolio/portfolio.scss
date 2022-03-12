@@ -45,6 +45,13 @@
   }
 }
 
+.suggestions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
 /* ================ MEDIA QUERIES (MEDIUM DEVICES) ================= */
 @media screen and (max-width: 1024px) {
   .portfolio__container {

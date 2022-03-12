@@ -1,10 +1,10 @@
 import axios from 'axios'
 import apiUrl from '../apiConfig'
 
-export const createJob = (title, company, description, budget, date, user) => {
+export const createSuggestion = (title, description, user) => {
   return axios.post(
-    `${apiUrl}/jobs/`,
-    { job: { title, company, description, budget, date } },
+    `${apiUrl}/suggestions/`,
+    { suggestion: { title, description } },
     // Pass along the authorization which includes our user's token
     {
       headers: {
@@ -13,9 +13,9 @@ export const createJob = (title, company, description, budget, date, user) => {
     }
   )
 }
-export const indexJobs = (user) => {
+export const indexSuggestions = (user) => {
   return axios.get(
-    `${apiUrl}/jobs/`,
+    `${apiUrl}/suggestions/`,
     // Pass along the authorization which includes our user's token
     {
       headers: {
@@ -24,9 +24,9 @@ export const indexJobs = (user) => {
     }
   )
 }
-export const indexUsersJobs = (user) => {
+export const indexUsersSuggestions = (user) => {
   return axios.get(
-    `${apiUrl}/jobs/owner/`,
+    `${apiUrl}/suggestions/owner/`,
     // Pass along the authorization which includes our user's token
     {
       headers: {
@@ -36,26 +36,26 @@ export const indexUsersJobs = (user) => {
   )
 }
 
-export const showJob = (id, user) => {
-  return axios.get(`${apiUrl}/jobs/${id}/`, {
+export const showSuggestion = (id, user) => {
+  return axios.get(`${apiUrl}/suggestions/${id}/`, {
     headers: {
       Authorization: `Bearer ${user.token}`
     }
   })
 }
 
-export const deleteJob = (id, user) => {
-  return axios.delete(`${apiUrl}/jobs/${id}`, {
+export const deleteSuggestion = (id, user) => {
+  return axios.delete(`${apiUrl}/suggestions/${id}`, {
     headers: {
       Authorization: `Bearer ${user.token}`
     }
   })
 }
 
-export const updateJob = (id, title, company, description, budget, date, user) => {
+export const updateSuggestion = (id, title, description, user) => {
   return axios.patch(
-    `${apiUrl}/jobs/${id}`,
-    { job: { title, company, description, budget, date } },
+    `${apiUrl}/suggestions/${id}`,
+    { suggestion: { title, description } },
     {
       headers: {
         Authorization: `Bearer ${user.token}`

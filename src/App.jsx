@@ -16,6 +16,8 @@ import SignIn from "./components/auth/SignIn"
 import SignOut from "./components/auth/SignOut"
 import ChangePassword from "./components/auth/ChangePassword"
 
+import CreateSuggestion from './components/suggestions/create/CreateSuggestion'
+
 const App = () => {
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
@@ -68,6 +70,10 @@ const App = () => {
           <Route
             path="/change-password"
             element={<ChangePassword msgAlert={msgAlert} user={user} />}
+          />
+          <Route
+            path="/suggestions"
+            element={<CreateSuggestion msgAlert={msgAlert} user={user}/>}
           />
         </Routes>
         <Header user={user} forwardRef={headerRef} />
