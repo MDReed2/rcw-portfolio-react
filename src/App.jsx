@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom"
 import { v4 as uuid } from "uuid"
 
@@ -18,8 +18,40 @@ import ChangePassword from "./components/auth/ChangePassword"
 
 import CreateSuggestion from './components/suggestions/create/CreateSuggestion'
 import ShowSuggestion from './components/suggestions/show/ShowSuggestion'
+import UpdateSuggestion from "./components/suggestions/update/UpdateSuggestion"
+import Index from './components/suggestions/index/Index'
 
 const App = () => {
+   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // executed by react, and after every component reEvaluation
+  // would only run once when the app runs
+  // handles side effects, arg 1 is function that should be executed
+  // data fetching is ran as a side effect to avoid a loop
+  useEffect(() => {
+    const storedUserLoggedInInformation = localStorage.getItem('isLoggedIn')
+    // if the user loggerd in is = 1 then well set the user to logged IN
+    if (storedUserLoggedInInformation === '1') {
+      // even without loginHandler being triggered
+      // update the state
+      setIsLoggedIn(true)
+    }
+    // arrary of dependencies
+  }, []) // since our dependecies didnt change it is only loaded once hence user is still logged in
+
+  const loginHandler = (email, password) => {
+    // We should of course check email and password
+    // But it's just a dummy/ demo anyways
+    // in applications on browser we see the key value pair
+    localStorage.setItem('isLoggedIn', '1')
+    setIsLoggedIn(true);
+  };
+
+  const logoutHandler = () => {
+    // when logging out we will remove this item and set it to false
+    localStorage.removeItem('isLoggedIn')
+    setIsLoggedIn(false);
+  };
+
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
 
@@ -49,6 +81,8 @@ const App = () => {
         />
       ))}
       <main className="container">
+        {/* {!isLoggedIn && <SignIn onLogin={loginHandler}/>} */}
+        {/* {isLoggedIn && <SignOut onLogout={logoutHandler}/>} */}
         <Routes>
           <Route
             path="/sign-up"
@@ -56,15 +90,18 @@ const App = () => {
           />
           <Route
             path="/sign-in"
-            element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
+            isAuthenticated={isLoggedIn}
+            element={!isLoggedIn && <SignIn msgAlert={msgAlert} setUser={setUser} onLogin={loginHandler} />}
           />
           <Route
             path="/sign-out"
             element={
+              isLoggedIn &&
               <SignOut
                 msgAlert={msgAlert}
                 clearUser={clearUser}
                 user={user}
+                onLogout={logoutHandler}
               />
             }
           />
@@ -73,12 +110,20 @@ const App = () => {
             element={<ChangePassword msgAlert={msgAlert} user={user} />}
           />
           <Route
-            path="/suggestions/create"
+            path="/suggestions/"
             element={<CreateSuggestion msgAlert={msgAlert} user={user}/>}
           />
-           <Route
+          <Route
             path="/suggestions/:id"
             element={<ShowSuggestion msgAlert={msgAlert} user={user}/>}
+          />
+          <Route
+            path="/suggestions/:id/edit"
+            element={<UpdateSuggestion msgAlert={msgAlert} user={user}/>}
+          />
+          <Route
+            path="/suggestions/owner"
+            element={<Index msgAlert={msgAlert} user={user}/>}
           />
         </Routes>
         <Header user={user} forwardRef={headerRef} />

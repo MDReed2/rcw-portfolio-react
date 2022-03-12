@@ -51,6 +51,7 @@ const Portfolio = (props) => {
         {props.user ? <CreatCTA /> : ''}
         <p>Have a project in mind that you would like to see?</p>
         <a href='#suggestions'><Link to='/suggestions'>Create Suggestion</Link></a>
+        <a href='#suggestionList'><Link to='/suggestions/owner'>View Suggestions</Link></a>
       </div>
     </section>
   )

@@ -29,7 +29,7 @@ const SuggestionForm = ({ handleSubmit, title, description, setTitle, setDescrip
                 onChange={event => setDescription(event.target.value)}
               />
             </Form.Group>
-            <Button variant='warning' type='submit'>Create Suggestion</Button>
+            <Button variant='warning' type='submit'>Submit Suggestion</Button>
           </Form>
         </div>
       </section>

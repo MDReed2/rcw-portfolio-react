@@ -10,12 +10,6 @@ const OneSuggestion = ({ user, msgAlert }) => {
   const [deleted, setDeleted] = useState(false)
   const { id } = useParams()
 
-  // if user is null, redirect to home page
-  // Note: Must check before useEffect, since it needs user
-  // if (!user) {
-  //   return <Navigate to='/' />
-  // } 
-
   useEffect(() => {
     // When using async & await in a `useEffect` function
     // We have to wrap our `async` code in a function:
@@ -35,6 +29,12 @@ const OneSuggestion = ({ user, msgAlert }) => {
     }
     fetchData()
   }, [suggestion])
+
+  // if user is null, redirect to home page
+  // Note: Must check before useEffect, since it needs user
+  if (!user) {
+    return <Navigate to='/' />
+  } 
 
 
   const handleDeleteClick = async () => {
