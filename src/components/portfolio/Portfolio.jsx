@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './portfolio.scss'
 import { AiFillGithub } from 'react-icons/ai'
 import IMG from '../../assets/project-img-example.png'
+import CreatCTA from '../suggestions/create/CreatCTA'
 
 const data = [
   {
@@ -10,18 +11,18 @@ const data = [
     image: IMG,
     title: 'True Foodie',
     github: 'https://github.com/MDReed2/true-foodie-client',
-    demo: '#'
+    demo: 'https://mdreed2.github.io/true-foodie-client/'
   },
   {
     id: 2,
     image: IMG,
     title: 'Jot-it',
     github: 'https://github.com/MDReed2/project-frontend',
-    demo: '#'
+    demo: 'https://house-slytherin.github.io/project-frontend/'
   }
 ]
 
-const Portfolio = () => {
+const Portfolio = (props) => {
   return (
     <section id='portfolio'>
       <h5>My Recent Work</h5>
@@ -47,8 +48,9 @@ const Portfolio = () => {
         }
       </div>
       <div className='suggestions'>
+        {props.user ? <CreatCTA /> : ''}
         <p>Have a project in mind that you would like to see?</p>
-        <Link to='/suggestions'>Create Suggestion</Link>
+        <a href='#suggestions'><Link to='/suggestions'>Create Suggestion</Link></a>
       </div>
     </section>
   )

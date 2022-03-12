@@ -5,8 +5,8 @@ import './form.scss'
 
 const SuggestionForm = ({ handleSubmit, title, description, setTitle, setDescription }) => {
   return (
-    <div>
-      <section id='contact'>
+    <div id='suggestions'>
+      <section>
         <h5>What Would You Like to See</h5>
         <h2>Suggestions</h2>
         <div className="container suggestion__container">
@@ -23,7 +23,7 @@ const SuggestionForm = ({ handleSubmit, title, description, setTitle, setDescrip
             <Form.Group controlId='description'>
               <Form.Label>Description</Form.Label>
               <Form.Control className= 'textarea'as="textarea" row={5}
-                placeholder='Please describe the job'
+                placeholder='Enter description'
                 name='description'
                 value={description}
                 onChange={event => setDescription(event.target.value)}

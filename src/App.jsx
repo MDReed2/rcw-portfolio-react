@@ -17,6 +17,7 @@ import SignOut from "./components/auth/SignOut"
 import ChangePassword from "./components/auth/ChangePassword"
 
 import CreateSuggestion from './components/suggestions/create/CreateSuggestion'
+import ShowSuggestion from './components/suggestions/show/ShowSuggestion'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -72,8 +73,12 @@ const App = () => {
             element={<ChangePassword msgAlert={msgAlert} user={user} />}
           />
           <Route
-            path="/suggestions"
+            path="/suggestions/create"
             element={<CreateSuggestion msgAlert={msgAlert} user={user}/>}
+          />
+           <Route
+            path="/suggestions/:id"
+            element={<ShowSuggestion msgAlert={msgAlert} user={user}/>}
           />
         </Routes>
         <Header user={user} forwardRef={headerRef} />
@@ -81,8 +86,8 @@ const App = () => {
         {user ? <About forwardRef={aboutRef} />: ''}
         {/* {user ? <Experience />: ''} */}
         <Experience />
-        {/* {user ? <Portfolio />: ''} */}
-        <Portfolio />
+        {user ? <Portfolio />: ''}
+        {/* <Portfolio user={user}/> */}
         <Contact />
       </main>
       <Footer />
