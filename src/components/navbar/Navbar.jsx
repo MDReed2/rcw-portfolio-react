@@ -31,7 +31,7 @@ const Navbar = (props) => {
   )
 
   const onHome = () => {
-    setActiveNav('/')
+    setActiveNav('#')
     props.headerRef.current.scrollIntoView({behavior: "smooth"})
   }
 
@@ -51,7 +51,7 @@ const Navbar = (props) => {
 
   return (
     <nav>
-      <a href='/' onClick={onHome} className={activeNav === '/' ? 'active' : ''} title="Home"><AiOutlineHome /></a>
+      <a href='#' onClick={onHome} className={activeNav === '/' ? 'active' : ''} title="Home"><AiOutlineHome /></a>
       <a href='#about' onClick={onAbout} className={activeNav === '#about' ? 'active' : ''}><AiOutlineUser /></a>
       <a href='#experience' onClick={() => setActiveNav('#experience')} className={activeNav === '#experience' ? 'active' : ''}><MdWorkOutline /></a>
       <a href='#portfolio' onClick={() => setActiveNav('#portfolio')} className={activeNav === '#portfolio' ? 'active' : ''}><MdOutlineMenu /></a>
