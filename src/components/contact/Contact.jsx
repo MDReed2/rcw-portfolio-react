@@ -4,18 +4,30 @@ import './contact.scss'
 import { MdOutlineEmail } from 'react-icons/md'
 import { AiOutlineWhatsApp } from 'react-icons/ai'
 import Form from 'react-bootstrap/Form'
-import { FormControl } from 'react-bootstrap'
+import { FormControl, Button } from 'react-bootstrap'
+import { contactSubmissionSuccessful } from '../AutoDismissAlert/messages'
 
 const Contact = () => {
   const form = useRef()
   const [fullName, setFullName] = useState('')
   const [emailInput, setEmailInput] = useState('')
   const [messageInput, setMessageInput] = useState('')
+  const [submit, setSubmit] = useState(false)
 
   const nameChangeHandler = (event) => {
     event.preventDefault()
-    // setFullName(event.target.value)
+    setFullName(event.target.value)
     console.log(event.target.value)
+  }
+
+  const emailChangeHandler = (event) => {
+    event.preventDefault()
+    setEmailInput(event.target.value)
+  }
+
+  const messageChangeHandler = (event) => {
+    event.preventDefault()
+    setMessageInput(event.target.value)
   }
 
 
@@ -29,17 +41,19 @@ const Contact = () => {
           console.log(error.text);
       })
 
-    const inputData = {
-      fullName: fullName,
-      emailInput: emailInput,
-      messageInput: messageInput
-    }
 
-    console.log(inputData)
+    // const inputData = {
+    //   fullName: fullName,
+    //   emailInput: emailInput,
+    //   messageInput: messageInput
+    // }
+
+    // console.log(inputData)
 
     setFullName('')
     setEmailInput('')
     setMessageInput('')
+    setSubmit(true)
   }
 
   return (
@@ -66,20 +80,42 @@ const Contact = () => {
           </article> */}
         </div>
         <Form ref={form} onSubmit={sendEmail}>
-          <Form.Label>Full Name</Form.Label>
-          <FormControl 
-            type='text'
-            name='name'
-            value={fullName}
-            onChange={nameChangeHandler}
-          />
+          <div>
+            <Form.Label>Full Name</Form.Label>
+            <FormControl 
+              type='text'
+              name='name'
+              value={fullName}
+              onChange={nameChangeHandler}
+              required
+            />
+          </div>
+          <div>
+            <Form.Label>Email</Form.Label>
+            <FormControl
+              type='email'
+              name='email'
+              value={emailInput}
+              onChange={emailChangeHandler}
+              required
+            />
+          </div>
+          <div>
+            <Form.Label>Message</Form.Label>
+            <FormControl className='textarea'
+              as="textarea"
+              row={7}
+              name='message'
+              value={messageInput}
+              onChange={messageChangeHandler}
+              required
+            />
+          </div>
+          <Button className='btn btn-primary' type='submit'>Submit</Button>
+          <div>
+            {submit ? contactSubmissionSuccessful : ''}
+          </div>
         </Form>
-        <form>
-          <input type="text" name='name' required onChange={nameChangeHandler}/>
-          <input type="email" name='email' placeholder='Email' />
-          <textarea name="message" rows="7" required></textarea>
-          <button type='submit' className='btn btn-primary'>Send</button>
-        </form>
       </div>
     </section>
   )
