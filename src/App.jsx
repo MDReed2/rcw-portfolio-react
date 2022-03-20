@@ -128,11 +128,12 @@ const App = () => {
         </Routes>
         <Header user={user} forwardRef={headerRef} />
         <Navbar headerRef={headerRef}/>
-        {user ? <About forwardRef={aboutRef} />: ''}
-        {/* {user ? <Experience />: ''} */}
+        <About />
         <Experience />
-        {user ? <Portfolio />: ''}
-        {/* <Portfolio user={user}/> */}
+        <Portfolio user={user}/>
+        {/* {user ? <About forwardRef={aboutRef} />: ''} */}
+        {/* {user ? <Experience />: ''} */}
+        {/* {user ? <Portfolio />: ''} */}
         <Contact />
       </main>
       <Footer />
