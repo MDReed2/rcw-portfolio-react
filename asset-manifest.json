@@ -1,24 +1,26 @@
 {
   "files": {
-    "main.css": "/rcw-portfolio-react/static/css/main.bcdd21ca.chunk.css",
-    "main.js": "/rcw-portfolio-react/static/js/main.6d69b0e5.chunk.js",
-    "main.js.map": "/rcw-portfolio-react/static/js/main.6d69b0e5.chunk.js.map",
+    "main.css": "/rcw-portfolio-react/static/css/main.6a078c31.chunk.css",
+    "main.js": "/rcw-portfolio-react/static/js/main.d0b14cf7.chunk.js",
+    "main.js.map": "/rcw-portfolio-react/static/js/main.d0b14cf7.chunk.js.map",
     "runtime-main.js": "/rcw-portfolio-react/static/js/runtime-main.93350cd2.js",
     "runtime-main.js.map": "/rcw-portfolio-react/static/js/runtime-main.93350cd2.js.map",
-    "static/js/2.ce0827d5.chunk.js": "/rcw-portfolio-react/static/js/2.ce0827d5.chunk.js",
-    "static/js/2.ce0827d5.chunk.js.map": "/rcw-portfolio-react/static/js/2.ce0827d5.chunk.js.map",
+    "static/js/2.b6da42f5.chunk.js": "/rcw-portfolio-react/static/js/2.b6da42f5.chunk.js",
+    "static/js/2.b6da42f5.chunk.js.map": "/rcw-portfolio-react/static/js/2.b6da42f5.chunk.js.map",
     "index.html": "/rcw-portfolio-react/index.html",
-    "static/css/main.bcdd21ca.chunk.css.map": "/rcw-portfolio-react/static/css/main.bcdd21ca.chunk.css.map",
-    "static/js/2.ce0827d5.chunk.js.LICENSE.txt": "/rcw-portfolio-react/static/js/2.ce0827d5.chunk.js.LICENSE.txt",
+    "static/css/main.6a078c31.chunk.css.map": "/rcw-portfolio-react/static/css/main.6a078c31.chunk.css.map",
+    "static/js/2.b6da42f5.chunk.js.LICENSE.txt": "/rcw-portfolio-react/static/js/2.b6da42f5.chunk.js.LICENSE.txt",
     "static/media/MeshiaReed_Resume2022.74b47a4e.pdf": "/rcw-portfolio-react/static/media/MeshiaReed_Resume2022.74b47a4e.pdf",
     "static/media/SD-350px.6fb19cfd.png": "/rcw-portfolio-react/static/media/SD-350px.6fb19cfd.png",
-    "static/media/project-img-example.4af766cf.png": "/rcw-portfolio-react/static/media/project-img-example.4af766cf.png",
-    "static/media/rcw-about-img-.f179e78a.png": "/rcw-portfolio-react/static/media/rcw-about-img-.f179e78a.png"
+    "static/media/jotit.ea000238.png": "/rcw-portfolio-react/static/media/jotit.ea000238.png",
+    "static/media/rcw-about-img-.f179e78a.png": "/rcw-portfolio-react/static/media/rcw-about-img-.f179e78a.png",
+    "static/media/tictactoe.9896b3c3.png": "/rcw-portfolio-react/static/media/tictactoe.9896b3c3.png",
+    "static/media/true-foodie.4135ef90.png": "/rcw-portfolio-react/static/media/true-foodie.4135ef90.png"
   },
   "entrypoints": [
     "static/js/runtime-main.93350cd2.js",
-    "static/js/2.ce0827d5.chunk.js",
-    "static/css/main.bcdd21ca.chunk.css",
-    "static/js/main.6d69b0e5.chunk.js"
+    "static/js/2.b6da42f5.chunk.js",
+    "static/css/main.6a078c31.chunk.css",
+    "static/js/main.d0b14cf7.chunk.js"
   ]
 }
