@@ -12,6 +12,7 @@ const data = [
     id: 1,
     image: TRUEFOODIE,
     title: 'True Foodie',
+    description: 'HTML ◦ CSS ◦ JavaScript ◦ Express',
     github: 'https://github.com/MDReed2/true-foodie-client',
     demo: 'https://mdreed2.github.io/true-foodie-client/'
   },
@@ -19,6 +20,7 @@ const data = [
     id: 2,
     image: JOTIT,
     title: 'Jotit',
+    description: 'HTML ◦ CSS ◦ JavaScript ◦ Express ◦ React',
     github: 'https://github.com/MDReed2/project-frontend',
     demo: 'https://house-slytherin.github.io/project-frontend/'
   },
@@ -26,6 +28,7 @@ const data = [
     id: 3,
     image: TICTACTOE,
     title: 'Tic Tac Toe',
+    description: 'HTML ◦ CSS ◦ JavaScript',
     github: 'https://github.com/MDReed2/TicTacToe-Game',
     demo: 'https://mdreed2.github.io/TicTacToe-Game/'
   }
@@ -38,7 +41,7 @@ const Portfolio = (props) => {
       <h2>Projects</h2>
       <div className="container portfolio__container">
         {
-          data.map(({id, image, title, github, demo}) => {
+          data.map(({id, image, title, description, github, demo}) => {
             return (
               <div>
                 <article key={id} className='portfolio__item'>
@@ -46,6 +49,7 @@ const Portfolio = (props) => {
                     <img src={image} alt="" />
                   </div>
                   <h3>{title}</h3>
+                  <h6>{description}</h6>
                   <div className="portfolio__item-cta">
                     <a href={github} className='btn' target='_blank' rel="noreferrer"><AiFillGithub /> GitHub</a>
                     <a href={demo} className='btn btn-primary' target='_blank' rel="noreferrer"> Live Demo</a>
