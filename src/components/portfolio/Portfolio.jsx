@@ -3,7 +3,8 @@ import React from 'react'
 import './portfolio.scss'
 import { AiFillGithub } from 'react-icons/ai'
 import TRUEFOODIE from '../../assets/true-foodie.png'
-import JOTIT from '../../assets/project-img-example.png'
+import JOTIT from '../../assets/jotit.png'
+import TICTACTOE from '../../assets/tictactoe.png'
 // import CreatCTA from '../suggestions/create/CreatCTA'
 
 const data = [
@@ -17,9 +18,16 @@ const data = [
   {
     id: 2,
     image: JOTIT,
-    title: 'Jot-it',
+    title: 'Jotit',
     github: 'https://github.com/MDReed2/project-frontend',
     demo: 'https://house-slytherin.github.io/project-frontend/'
+  },
+  {
+    id: 3,
+    image: TICTACTOE,
+    title: 'Tic Tac Toe',
+    github: 'https://github.com/MDReed2/TicTacToe-Game',
+    demo: 'https://mdreed2.github.io/TicTacToe-Game/'
   }
 ]
 
