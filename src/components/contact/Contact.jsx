@@ -17,7 +17,6 @@ const Contact = () => {
   const nameChangeHandler = (event) => {
     event.preventDefault()
     setFullName(event.target.value)
-    console.log(event.target.value)
   }
 
   const emailChangeHandler = (event) => {
