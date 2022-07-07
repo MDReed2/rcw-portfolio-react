@@ -29,6 +29,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+    margin-bottom: 1rem;
 
     .about__card {
       background: $color-bg-variant;
@@ -64,6 +65,10 @@
         color: $color-light;
       }
     }
+  }
+
+  .card-text {
+    margin-bottom: 1rem;
   }
 }
 

@@ -33,7 +33,7 @@ const About = () => {
             <small>20+ completed</small>
           </article>
         </div>
-        <p>
+        <p className='card-text'>
           A devoted Software Engineer, who values taking initiative, being respectful, positively impacting organizations, fostering genuine connections with stakeholders, and among much more. 
         </p>
         <a href='#contact' className='btn btn-primary'>Let's Talk</a>
