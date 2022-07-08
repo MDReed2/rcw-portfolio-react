@@ -7,6 +7,7 @@ import Navbar from "./components/navbar/Navbar"
 import About from "./components/about/About"
 import Experience from "./components/experience/Experience"
 import Portfolio from "./components/portfolio/Portfolio"
+import Pixels from "./components/pixels/Pixels"
 import Contact from "./components/contact/Contact"
 import Footer from "./components/footer/Footer"
 
@@ -131,6 +132,7 @@ const App = () => {
         <About />
         <Experience />
         <Portfolio user={user}/>
+        <Pixels/>
         {/* {user ? <About forwardRef={aboutRef} />: ''} */}
         {/* {user ? <Experience />: ''} */}
         {/* {user ? <Portfolio />: ''} */}

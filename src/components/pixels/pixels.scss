@@ -1,0 +1,26 @@
+@import "../../index.scss";
+
+.pixels__container {
+  background-color: $color-bg-variant;
+  padding: 1rem;
+  border: 1px solid transparent;
+  border-radius: 1.5rem;
+  transition: $transition;
+
+  .card {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    .card-img {
+      // background-color: $color-primary;
+      width: 25%;
+      padding: 7px;
+      border-radius: 1rem;
+
+      &:hover {
+        border-radius: 0px;
+      }
+    }
+  }
+}
